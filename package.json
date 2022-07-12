@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://86andrey.github.io/Filmoteka",
+  "homepage": "https://SiarheyLu4.github.io/filmiqweqwe",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Filmoteka/"
+    "build": "parcel build src/*.html --public-url /filmiqweqwe/"
   },
   "repository": {
     "type": "git",
