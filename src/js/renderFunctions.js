@@ -124,6 +124,9 @@ export async function makeMarkupLib(array) {
 }
 
 export async function openModal(movieId) {
+  // document.body.classList.add('body_fixed');
+  document.body.style.overflow = 'hidden';
+
   const containerModal = document.querySelector('.modal__card-content');
   const data = await movie.fetchById(movieId);
   // console.log(data);
@@ -135,6 +138,8 @@ export async function openModal(movieId) {
   //МОДАЛКА ЗАКРЫТА КРЕСТИКОМ
   modalCloseBtn.addEventListener('click', closeByCross);
   function closeByCross() {
+    // document.body.classList.remove('body_fixed');
+    document.body.style.overflow = '';
     modalCloseBtn.removeEventListener('click', closeByCross);
     modal.classList.add('is-hidden');
     // console.log("модалка закрита(крестиком)");
@@ -143,6 +148,8 @@ export async function openModal(movieId) {
   //МОДАЛКА ЗАКРЫТА ФОНОМ
   modal.addEventListener('click', closeByOverlay);
   function closeByOverlay(e) {
+    // document.body.classList.remove('body_fixed');
+    document.body.style.overflow = '';
     if (e.target === modal) {
       modal.removeEventListener('click', closeByOverlay);
       modal.classList.add('is-hidden');
@@ -153,6 +160,8 @@ export async function openModal(movieId) {
   //МОДАЛКА ЗАКРЫТА esc
   window.addEventListener('keydown', closeByEsc);
   function closeByEsc(e) {
+    // document.body.classList.remove('body_fixed');
+    document.body.style.overflow = '';
     if (e.keyCode === 27) {
       window.removeEventListener('keydown', closeByEsc);
       modal.classList.add('is-hidden');
@@ -217,7 +226,7 @@ export async function openModal(movieId) {
       if (checkMovie >= 0) {
         const removMovie = parsing.splice(checkMovie, 1);
         storage.addItem('qu', parsing);
-        updateQueue()
+        updateQueue();
         result.push(data);
         storage.addItem('watched', result);
       } else if (checkMovie === -1) {
@@ -246,7 +255,7 @@ export async function openModal(movieId) {
       if (checkMovie >= 0) {
         const removMovie = parsing.splice(checkMovie, 1);
         storage.addItem('watched', parsing);
-        updateWatched()
+        updateWatched();
         result.push(data);
         storage.addItem('qu', result);
       } else if (checkMovie === -1) {
@@ -273,7 +282,7 @@ export async function openModal(movieId) {
     } else {
       const removMovie = parsing.splice(checkMovie, 1);
       storage.addItem('watched', parsing);
-      updateWatched()
+      updateWatched();
     }
     removeFromWatched.classList.add('hide-btn');
     addToWatched.classList.remove('hide-btn');
@@ -288,7 +297,7 @@ export async function openModal(movieId) {
     } else {
       const removMovie = parsing.splice(checkMovie, 1);
       storage.addItem('qu', parsing);
-      updateQueue()
+      updateQueue();
     }
     removeFromQueue.classList.add('hide-btn');
     addToQueue.classList.remove('hide-btn');
