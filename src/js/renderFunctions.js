@@ -148,9 +148,9 @@ export async function openModal(movieId) {
   //МОДАЛКА ЗАКРЫТА ФОНОМ
   modal.addEventListener('click', closeByOverlay);
   function closeByOverlay(e) {
-    // document.body.classList.remove('body_fixed');
-    document.body.style.overflow = '';
     if (e.target === modal) {
+      // document.body.classList.remove('body_fixed');
+      document.body.style.overflow = '';
       modal.removeEventListener('click', closeByOverlay);
       modal.classList.add('is-hidden');
       // console.log("модалка закрита(фоном)");
